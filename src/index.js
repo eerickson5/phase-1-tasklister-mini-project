@@ -23,7 +23,7 @@ handleTaskSubmit = (e) => {
   toDoButton.textContent = "X";
   //add listener to p element
   toDoButton.addEventListener("click", (event) => {
-    event.target.remove();
+    event.target.parentNode.remove();
   });
 
   //push p element
