@@ -13,22 +13,26 @@ document.addEventListener("DOMContentLoaded", () => {
 handleTaskSubmit = (e) => {
   //prevent default
   e.preventDefault();
-  //create p element
+  //create and style container
   const toDoEntry = document.createElement("li");
+  toDoEntry.className = "to-do-item-container"
 
   const toDoText = document.createElement("p");
   toDoText.textContent = e.target.querySelector("#new-task-description").value;
 
+  //create button
   const toDoButton = document.createElement("button");
   toDoButton.textContent = "X";
-  //add listener to p element
+  toDoButton.className = "btn"
+
+  //add listener to button
   toDoButton.addEventListener("click", (event) => {
     event.target.parentNode.remove();
   });
 
-  //push p element
-  toDoEntry.appendChild(toDoText);
   toDoEntry.appendChild(toDoButton);
+  toDoEntry.appendChild(toDoText);
+  //push nodes to document
   let list = document.getElementsByTagName("ul")[0];
   list.appendChild(toDoEntry);
   //reset form
